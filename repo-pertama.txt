@@ -2,3 +2,4 @@ my planning
 -learn html
 -learn css
 -create simple website with html and css
+-learn php
