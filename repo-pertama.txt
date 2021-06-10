@@ -1,7 +1,10 @@
 my planning
 -learn html
+  .html lanjutan
 -learn css
 -learn javascript
 -learn framework
+  .angular
+  .vue
 -coba
--coba framwork react js
+
