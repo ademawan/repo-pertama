@@ -1,6 +1,7 @@
 my planning
 -learn html
 -learn css
--learn php
+-learn javascript
 -learn framework
 -coba
+-coba framwork react js
