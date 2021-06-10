@@ -1,7 +1,10 @@
 my planning
 -learn html
+    .html dasar
 -learn css
 -learn javascript
 -learn framework
+  .codeigniter
+  .laravel
 -coba
 -coba framwork react js
