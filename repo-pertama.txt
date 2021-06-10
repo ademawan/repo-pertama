@@ -6,6 +6,3 @@ my planning
 -learn framework
   .codeigniter
   .laravel
-  .angular
--coba
-
