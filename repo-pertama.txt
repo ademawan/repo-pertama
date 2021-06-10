@@ -4,7 +4,8 @@ my planning
 -learn css
 -learn javascript
 -learn framework
+  .codeigniter
+  .laravel
   .angular
-  .vue
 -coba
 
