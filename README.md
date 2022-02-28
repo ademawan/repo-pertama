@@ -13,7 +13,7 @@ Find vacation rentals, cabins, beach houses, unique homes and experiences around
     <br />
     <div id = "other-software-design"></div>
     ·
-    <a href="https://github.com/AIRBNB-App-Project2/backend-airbnb/tree/main/repository/altaProject.drawio?raw=true">ERD</a>
+    <a href="https://github.com/AIRBNB-App-Project2/backend-airbnb/blob/main/repository/erd/altaProject%20.drawio">ERD</a>
     ·
     <a href="https://app.swaggerhub.com/apis/faliqadlan/airbnb/1.0.0">Open API</a>
   </p>
@@ -33,9 +33,9 @@ Find vacation rentals, cabins, beach houses, unique homes and experiences around
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-- An app that allow user to be a pet shop owner to sell their services and products or to be a customer to buy them. 
-- Pet shop owners will be helped to market the products and services so that they can be easily reached by customers and they will be helped to get the products and services that are needed by their pets easily.
-- Build with Golang, Echo Framework, MySQL adn GORM for manage repository, Xuri Excelize for Export List Product Selling to Excel, FTP to store Image Product to server, Xendit API for Payment Gateway, Deploy the project on [Okteto](https://ellashella24.cloud.okteto.net).
+- Find vacation rentals, cabins, beach houses, unique homes and experiences around the world - all made possible by hosts on Airbnb. 
+- Guests can find the perfect place to stay for their vacation and explore new experiences while traveling, or online. Hosts can advertise their place, get tips and hosting support, and earn income while creating memorable moments for guests.
+- Build with Golang, Echo Framework, MySQL adn GORM for manage repository, midtrans API for Payment Gateway, Deploy the project on [aws](https://aws.amazon.com/).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
