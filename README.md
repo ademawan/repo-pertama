@@ -12,15 +12,10 @@
     AIRBNB DEVELOPMENT
     <br />
     <div id = "other-software-design"></div>
-    <a href="https://whimsical.com/petshop-RtwdxfQTB8e72AY681qRBj">Wireflow</a>
     ·
-    <a href="https://github.com/ellashella24/petshop/blob/main/documentation/usecase.jpeg?raw=true">Use Case</a>
+    <a href="https://github.com/AIRBNB-App-Project2/backend-airbnb/tree/main/repository/altaProject.drawio?raw=true">ERD</a>
     ·
-    <a href="https://github.com/ellashella24/petshop/blob/main/documentation/flowchart.jpeg?raw=true">Flowchart</a>
-    ·
-    <a href="https://github.com/ellashella24/petshop/blob/main/documentation/erd.jpeg?raw=true">ERD</a>
-    ·
-    <a href="https://app.swaggerhub.com/apis-docs/nflhibatullah/PetStore/1.0">Open API</a>
+    <a href="https://app.swaggerhub.com/apis/faliqadlan/airbnb/1.0.0">Open API</a>
   </p>
 </div>
 <br />
@@ -60,10 +55,8 @@ HLA design for this project shown in the picture below
 - [Echo Framework](https://echo.labstack.com/) - Go Framework
 - [MySQL](https://www.mysql.com/) - SQL Database
 - [GORM](https://gorm.io/index.html) - ORM Library
-- [FTP](https://github.com/jlaffaye/ftp) - Upload File
-- [SMTP](https://github.com/xhit/go-simple-mail) - Send Email
-- [Xuri Excelize](https://xuri.me/excelize/) - Export Data to Excel Files
-- [Xendit](https://www.xendit.co/id/?utm_source=google&utm_medium=cpc&utm_campaign=BKWS-Exact-ID-ID&utm_content=payment-gateway&utm_term=xendit) - Payment Gateway
+- [aws-s3](https://s3.console.amazon.com/s3) - Upload File
+- [midtrans](https://www.midtrans.com/ - Payment Gateway
 
 ### Deployment
 - [Docker](https://www.docker.com/) - Container Images
@@ -84,19 +77,22 @@ This project use Layered Architure to organized each components into spesific fu
 ### Structuring
   ```sh
     AIRBNB-App-Project2
-    ├── config                        
+    ├── configs                        
     │     └──config.go                # Contains list of configuration of the project
     ├── constants                     
     │     └──constants.go             # Contains list constant variable
     ├── delivery                      # Contains list of component for handle request dan response
-    │     └──common                   # Contains list of http request format based on the result from controller 
-    │     │   ├── common.go           # Contains list of http request format
-    │     └──controllers               # Contains list of component that receive the request and return a response
-    │     │   ├── user
-    │     │   ├── formatter_req.go    # Contains list of request format for each function on the controller
-    │     │   ├── formatter_res.go    # Contains list of response format for each function on the controller
-    │     │   ├── user_test.go        # Contains list of function for test each function on the controller
-    │     │   └── users.go            # Contains list of controller for each entity    
+    │     ├──templates                # Contains list of http request format based on the result from controller 
+    │     │   └── httpRes.go          # Contains list of http request format
+    │     ├──controllers              # Contains list of component that receive the request and return a response
+    │     │   └── user
+    │     │     │   ├── formatter.go  # Contains list of request format for each function on the controller
+    │     │     │   ├── user_test.go  # Contains list of function for test each function on the controller
+    │     │     │   └── users.go      # Contains list of controller for each entity
+    │     ├──middlewares              # Contains list of component that receive the request and return a response
+    │     │   ├── JwtAuth.go          # Contains list of function to config middleware basic auth
+    │     │   ├── JwtMiddleware.go    # Contains list of function to config middleware token
+    │     │   └── formatter_res.go    # Contains list of response format for each function on the controller
     │     └──routes  
     │         └── routes.go           # Contains list of route to access each function on controller  
     ├── entities                      # Contains model all entity
@@ -104,17 +100,22 @@ This project use Layered Architure to organized each components into spesific fu
     ├── node-output                   # Contains list of documentation
     │     └── open-api-swagger.yaml  
     ├── repository                    # Contains list of functions that process the request and stores it in database
-    │     ├── user_test.go            # Contains list of function for test each function on the repository
-    │     └── users.go                # Contains list of repository for each entity
-    ├── utils                         # Contains list of function to config each type of database
-    │     └── mysqldriver.go          # Contains list of function to config MySQL type database
-    │     └── aws.go                  # Contains list of function to config aws s3
-    │     └── midtrans.go             # Contains list of function to config payment getaway
+    │     ├── database   
+    │           ├── user_test.go            # Contains list of function for test each function on the repository
+    │           └── user.go                 # Contains list of repository for each entity
+    │    └── erd   
+    │         └── altaProject.drawio                 # Contains list of repository for each entity
+    ├── utils                         
+    │     ├── mysqldriver.go          # Contains list of function to config MySQL type database
+    │     ├── aws.go                  # Contains list of function to config aws s3
+    │     ├── midtrans.go             # Contains list of function to config payment getaway
     │     └── hashPassword.go         # Contains list of function to generate password
     ├── .env                          # Contains list of environment variable to run the project 
     ├── .gitignore                    # Contains list of directory/file name that will igonored when push project
     ├── go.mod                  
-    ├── go.sum                  
+    ├── go.sum 
+    ├── docker-compose.yaml 
+    ├── dockerfile 
     ├── main.go                       # Contains list of component that need to be executed first to run the app
     └── README.md    
   ```
