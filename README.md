@@ -1,34 +1,134 @@
-# Foobar
+<div id="top"></div>
 
-Foobar is a Python library for dealing with word pluralization.
+# AIRBNB BE-6
 
-## Installation
+<!-- PROJECT LOGO -->
+<div align="center">
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+  <h3 align="center">AIRBNB</h3>
 
-```bash
-pip install foobar
-```
 
-## Usage
+  <p align="center">
+    AIRBNB DEVELOPMENT
+    <br />
+    <div id = "other-software-design"></div>
+    <a href="https://whimsical.com/petshop-RtwdxfQTB8e72AY681qRBj">Wireflow</a>
+    ·
+    <a href="https://github.com/ellashella24/petshop/blob/main/documentation/usecase.jpeg?raw=true">Use Case</a>
+    ·
+    <a href="https://github.com/ellashella24/petshop/blob/main/documentation/flowchart.jpeg?raw=true">Flowchart</a>
+    ·
+    <a href="https://github.com/ellashella24/petshop/blob/main/documentation/erd.jpeg?raw=true">ERD</a>
+    ·
+    <a href="https://app.swaggerhub.com/apis-docs/nflhibatullah/PetStore/1.0">Open API</a>
+  </p>
+</div>
+<br />
 
-```python
-import foobar
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+1. [About the Project](#about-the-project)
+2. [High Level Architecture](#high-level-architecture)
+3. [Tech Stack](#tech-stack)
+4. [Code Structure](#code-structure)
+    - [Structuring](#structuring)
+    - [Unit Test](#unit-test)
+5. [How to Contrib](contribute.md)
+6. [Contact](#contact)
 
-# returns 'words'
-foobar.pluralize('word')
+<!-- ABOUT THE PROJECT -->
+## About The Project
+- An app that allow user to be a pet shop owner to sell their services and products or to be a customer to buy them. 
+- Pet shop owners will be helped to market the products and services so that they can be easily reached by customers and they will be helped to get the products and services that are needed by their pets easily.
+- Build with Golang, Echo Framework, MySQL adn GORM for manage repository, Xuri Excelize for Export List Product Selling to Excel, FTP to store Image Product to server, Xendit API for Payment Gateway, Deploy the project on [Okteto](https://ellashella24.cloud.okteto.net).
 
-# returns 'geese'
-foobar.pluralize('goose')
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+## High Level Architecture
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+HLA design for this project shown in the picture below
 
-Please make sure to update tests as appropriate.
+<img src="images/HLA-rev-3.jpeg" alt="hla" width="800" height="462" >
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+<br />
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Tech Stack
+### RESTful-API
+- [Go](https://go.dev/)
+- [Echo Framework](https://echo.labstack.com/) - Go Framework
+- [MySQL](https://www.mysql.com/) - SQL Database
+- [GORM](https://gorm.io/index.html) - ORM Library
+- [FTP](https://github.com/jlaffaye/ftp) - Upload File
+- [SMTP](https://github.com/xhit/go-simple-mail) - Send Email
+- [Xuri Excelize](https://xuri.me/excelize/) - Export Data to Excel Files
+- [Xendit](https://www.xendit.co/id/?utm_source=google&utm_medium=cpc&utm_campaign=BKWS-Exact-ID-ID&utm_content=payment-gateway&utm_term=xendit) - Payment Gateway
+
+### Deployment
+- [Docker](https://www.docker.com/) - Container Images
+- [Okteto](https://www.okteto.com/) - Kubernetes Platform
+- [Kubernetes](https://kubernetes.io/) - Container Orchestration
+
+Follow the link to see deployment flow of this project : [Deployment Flow](https://github.com/ellashella24/petshop/blob/main/documentation/deployment-flow.jpeg?raw=true)
+
+### Collaboration 
+- [Trello](https://trello.com/) - Manage Project
+- [Github](https://github.com/) - Versioning Project
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Code Structure
+This project use Layered Architure to organized each components into spesific function  
+
+### Structuring
+  ```sh
+    AIRBNB-App-Project2
+    ├── config                        
+    │     └──config.go                # Contains list of configuration of the project
+    ├── constants                     
+    │     └──constants.go             # Contains list constant variable
+    ├── delivery                      # Contains list of component for handle request dan response
+    │     └──common                   # Contains list of http request format based on the result from controller 
+    │     │   ├── common.go           # Contains list of http request format
+    │     └──controllers               # Contains list of component that receive the request and return a response
+    │     │   ├── user
+    │     │   ├── formatter_req.go    # Contains list of request format for each function on the controller
+    │     │   ├── formatter_res.go    # Contains list of response format for each function on the controller
+    │     │   ├── user_test.go        # Contains list of function for test each function on the controller
+    │     │   └── users.go            # Contains list of controller for each entity    
+    │     └──routes  
+    │         └── routes.go           # Contains list of route to access each function on controller  
+    ├── entities                      # Contains model all entity
+    │     └── user.go                 # Contains model for spesific entity
+    ├── node-output                   # Contains list of documentation
+    │     └── open-api-swagger.yaml  
+    ├── repository                    # Contains list of functions that process the request and stores it in database
+    │     ├── user_test.go            # Contains list of function for test each function on the repository
+    │     └── users.go                # Contains list of repository for each entity
+    ├── utils                         # Contains list of function to config each type of database
+    │     └── mysqldriver.go          # Contains list of function to config MySQL type database
+    │     └── aws.go                  # Contains list of function to config aws s3
+    │     └── midtrans.go             # Contains list of function to config payment getaway
+    │     └── hashPassword.go         # Contains list of function to generate password
+    ├── .env                          # Contains list of environment variable to run the project 
+    ├── .gitignore                    # Contains list of directory/file name that will igonored when push project
+    ├── go.mod                  
+    ├── go.sum                  
+    ├── main.go                       # Contains list of component that need to be executed first to run the app
+    └── README.md    
+  ```
+
+### Unit Test
+Coverage result on all functions is 99.2% which the most functions have reached 100% coverage. Coverage result for each function shown in the picture below
+
+<img src="images/coverage-result-ver-2.jpg" alt="coverage-result">
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+## Contact
+* Ade Mawan - [Github](https://github.com/ademawan) 
+* Faliq Adlan - [Github](https://github.com/faliqadlan) 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
