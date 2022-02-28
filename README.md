@@ -6,7 +6,7 @@
 <div align="center">
 
   <h3 align="center">AIRBNB</h3>
-
+Find vacation rentals, cabins, beach houses, unique homes and experiences around the world - all made possible by hosts on Airbnb
 
   <p align="center">
     AIRBNB DEVELOPMENT
@@ -60,11 +60,6 @@ HLA design for this project shown in the picture below
 
 ### Deployment
 - [Docker](https://www.docker.com/) - Container Images
-- [Okteto](https://www.okteto.com/) - Kubernetes Platform
-- [Kubernetes](https://kubernetes.io/) - Container Orchestration
-
-Follow the link to see deployment flow of this project : [Deployment Flow](https://github.com/ellashella24/petshop/blob/main/documentation/deployment-flow.jpeg?raw=true)
-
 ### Collaboration 
 - [Trello](https://trello.com/) - Manage Project
 - [Github](https://github.com/) - Versioning Project
@@ -81,7 +76,7 @@ This project use Layered Architure to organized each components into spesific fu
     │     └──config.go                # Contains list of configuration of the project
     ├── constants                     
     │     └──constants.go             # Contains list constant variable
-    ├── delivery                      # Contains list of component for handle request dan response
+    ├── delivery                      
     │     ├──templates                # Contains list of http request format based on the result from controller 
     │     │   └── httpRes.go          # Contains list of http request format
     │     ├──controllers              # Contains list of component that receive the request and return a response
@@ -89,7 +84,7 @@ This project use Layered Architure to organized each components into spesific fu
     │     │     │   ├── formatter.go  # Contains list of request format for each function on the controller
     │     │     │   ├── user_test.go  # Contains list of function for test each function on the controller
     │     │     │   └── users.go      # Contains list of controller for each entity
-    │     ├──middlewares              # Contains list of component that receive the request and return a response
+    │     ├──middlewares              # Contains list of all middleware 
     │     │   ├── JwtAuth.go          # Contains list of function to config middleware basic auth
     │     │   ├── JwtMiddleware.go    # Contains list of function to config middleware token
     │     │   └── formatter_res.go    # Contains list of response format for each function on the controller
@@ -104,7 +99,7 @@ This project use Layered Architure to organized each components into spesific fu
     │           ├── user_test.go            # Contains list of function for test each function on the repository
     │           └── user.go                 # Contains list of repository for each entity
     │    └── erd   
-    │         └── altaProject.drawio                 # Contains list of repository for each entity
+    │         └── altaProject.drawio                 # Contains list of relations database
     ├── utils                         
     │     ├── mysqldriver.go          # Contains list of function to config MySQL type database
     │     ├── aws.go                  # Contains list of function to config aws s3
